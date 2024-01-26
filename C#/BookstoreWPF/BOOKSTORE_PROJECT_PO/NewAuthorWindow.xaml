@@ -1,0 +1,44 @@
+﻿<Window x:Class="BOOKSTORE_PROJECT_PO.NewAuthorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BOOKSTORE_PROJECT_PO"
+        mc:Ignorable="d"
+        Title="AUTHORS" Height="450" Width="453">
+    <Grid>
+        <Grid>
+            <Label Content="Authors" HorizontalAlignment="Center" Margin="0,5,0,0" VerticalAlignment="Top" FontFamily="Microsoft Himalaya" FontWeight="Bold" FontSize="24"/>
+            <Label Content="Add new author:" HorizontalAlignment="Left" Margin="35,35,0,0" VerticalAlignment="Top" FontFamily="Microsoft Himalaya" FontSize="22"/>
+            <Label Content="Update author:" HorizontalAlignment="Right" Margin="0,35,80,0" VerticalAlignment="Top" FontFamily="Microsoft Himalaya" FontSize="22"/>
+        </Grid>
+        <Grid>
+            <WrapPanel>
+                <Label Content="First Name:" HorizontalAlignment="Left" Margin="5,60,0,0" VerticalAlignment="Top" FontFamily="Microsoft Himalaya" FontSize="18"/>
+                <TextBox x:Name="authorName" HorizontalAlignment="Left" Margin="2,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" FontSize="13" FontFamily="Times New Roman"/>
+            </WrapPanel>
+            <WrapPanel>
+                <Label Content="Last Name:" HorizontalAlignment="Left" Margin="5,85,0,0" VerticalAlignment="Top" FontFamily="Microsoft Himalaya" FontSize="18"/>
+                <TextBox x:Name="authorLastName" HorizontalAlignment="Left" Margin="4,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" FontSize="13" FontFamily="Times New Roman"/>
+            </WrapPanel>
+            <WrapPanel>
+                <Button Click="BtnAddAuthor" Content="Add Author" HorizontalAlignment="Left" Margin="55,120,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya" Width="100" Height="20"/>
+            </WrapPanel>
+        </Grid>
+        <Grid>
+            <WrapPanel>
+                <Label Content="First Name:" HorizontalAlignment="Left" Margin="230,60,0,0" VerticalAlignment="Top" FontFamily="Microsoft Himalaya" FontSize="18"/>
+                <TextBox IsEnabled="False" x:Name="authorNameUpdate" HorizontalAlignment="Left" Margin="2,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" FontSize="13" FontFamily="Times New Roman"/>
+            </WrapPanel>
+            <WrapPanel>
+                <Label Content="Last Name:" HorizontalAlignment="Left" Margin="230,85,0,0" VerticalAlignment="Top" FontFamily="Microsoft Himalaya" FontSize="18"/>
+                <TextBox IsEnabled="False" x:Name="authorLastNameUpdate" HorizontalAlignment="Left" Margin="4,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" FontSize="13" FontFamily="Times New Roman"/>
+            </WrapPanel>
+            <WrapPanel>
+                <Button Click="BtnDeleteAuthor" Content="Delete Author" HorizontalAlignment="Left" Margin="285,120,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya" Width="100" Height="20"/>
+            </WrapPanel>
+        </Grid>
+        <Button Click="BtnBackToMainWindow" Content="Back" HorizontalAlignment="Left" Margin="5,170,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya" Width="70" Height="20"/>
+        <DataGrid x:Name="gridAuthors" d:ItemsSource="{d:SampleData ItemCount=8}"  ColumnWidth="*" Margin="5,240,5,10" Height="186" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="13" FontFamily="Times New Roman" SelectionChanged="gridAuthors_SelectionChanged"/>
+    </Grid>
+</Window>

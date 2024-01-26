@@ -1,0 +1,27 @@
+﻿@using MN_SO_APS_PROJECT.Areas.Identity.Data
+
+@model List<ApplicationUser>
+@inject ApplicationDbContext _db;
+
+@{
+	List<CityModel> cities = _db.City.ToList(); 
+}
+
+<h1>We have these users!</h1>
+
+@foreach(var user in Model) {
+<div class="container mt-3">
+    <div class="row mb-3">
+        <div class="col-md-6 list-group-item d-flex justify-content-between align-items-start">
+            <div class="card-body">
+                <h5 class="card-title">@user.Login</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Email: @user.Email</li>
+		            <li class="list-group-item">Email confirmed: @user.EmailConfirmed</li>
+		            <li class="list-group-item">City: @cities.Find(c => c.Id == user.CityId).CityName</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+}

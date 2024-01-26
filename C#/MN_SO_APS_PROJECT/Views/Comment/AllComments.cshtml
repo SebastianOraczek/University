@@ -1,0 +1,15 @@
+﻿@using MN_SO_APS_PROJECT.Areas.Identity.Data
+@inject ApplicationDbContext _db;
+
+<h1>All Comments</h1>
+
+@foreach(var item in ViewBag.Comments)
+{   
+  <li class="list-group-item d-flex justify-content-between align-items-start">
+    <div class="ms-2 me-auto">
+      <div class="fw-bold">@_db.Users.ToList().Find(u => u.Id == item.ApplicationUserId).Login</div>
+      @item.Content
+    </div>
+    <span class="badge">@Html.ActionLink("Delete", "Delete", new {id = item.ApplicationUserId})</span>
+  </li>   
+}

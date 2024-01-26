@@ -1,0 +1,157 @@
+﻿<Window x:Class="Lab9_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab9_WPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid>
+            <WrapPanel Margin="0,20,0,0" VerticalAlignment="Top" HorizontalAlignment="Center">
+                <Button Content="Text" Margin="10,0,0,0" Width="45" Click="Btn_Text_Click" Background="LightGray" BorderThickness="0" Height="23" FontSize="19" FontFamily="Microsoft Himalaya">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="4"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button Content="Bash" Margin="10,0,0,0" Width="45" Click="Btn_Bash_Click" Background="Lime" BorderThickness="0" Height="23" FontSize="19" FontFamily="Microsoft Himalaya">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="4"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button Content="C++"  Margin="10,0,0,0" Width="45" Click="Btn_Cpp_Click" Background="DeepSkyBlue" BorderThickness="0" Height="23" FontSize="19" FontFamily="Microsoft Himalaya">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="4"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button Content="C#" Margin="10,0,0,0" Width="45" Click="Btn_CSharp_Click" Background="MediumPurple" BorderThickness="0" Height="23" FontSize="19" FontFamily="Microsoft Himalaya">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="4"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button Content="Java"  Margin="10,0,0,0" Width="45" Click="Btn_Java_Click" Background="BlueViolet" BorderThickness="0" Height="23" FontSize="19" FontFamily="Microsoft Himalaya">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="4"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button Content="CSS" Margin="10,0,0,0" Width="45" Click="Btn_CSS_Click" Background="LightBlue" BorderThickness="0" Height="23" FontSize="19" FontFamily="Microsoft Himalaya">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="4"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button Content="HTML" Margin="10,0,0,0" Width="45" Click="Btn_HTML_Click" Background="Orange" BorderThickness="0" Height="23" FontSize="19" FontFamily="Microsoft Himalaya">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="4"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button Content="Java Script" Margin="10,0,0,0" Width="70" Click="Btn_JS_Click" Background="Yellow" BorderThickness="0" Height="23" FontSize="19" FontFamily="Microsoft Himalaya">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="4"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button Content="PHP" Margin="10,0,0,0" Width="45" Click="Btn_PHP_Click" Background="CornflowerBlue" BorderThickness="0" Height="23" FontSize="19" FontFamily="Microsoft Himalaya">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="4"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button Content="Python" Margin="10,0,0,0" Width="45" Click="Btn_Python_Click"  Background="Yellow" BorderThickness="0" Height="23" FontSize="19" FontFamily="Microsoft Himalaya">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="4"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button Content="SQL" Margin="10,0,0,0" Width="45" Click="Btn_SQL_Click" BorderThickness="0" Height="23" FontSize="19" FontFamily="Microsoft Himalaya">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="4"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button Content="All" Margin="10,0,0,0" Width="75" Click="Btn_All_Click" Background="LightGreen" BorderThickness="0" Height="23" FontSize="19" FontFamily="Microsoft Himalaya">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="4"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </WrapPanel>
+        </Grid>
+        <Grid HorizontalAlignment="Right">
+            <WrapPanel  Margin="0,100,10,0" VerticalAlignment="Top">
+                <Label Content="Page Number" Margin="0,-25,-200,0" FontSize="18" FontFamily="Microsoft Himalaya" HorizontalAlignment="Center"/>
+                <Button Content="Previous" Margin="0,0,10,0" Width="60" Click="Btn_Prev_Click" Background="White" BorderThickness="2" BorderBrush="SkyBlue" FontSize="19" FontFamily="Microsoft Himalaya">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="4"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button Content="1" Margin="0,0,5,0" Width="25" Click="Btn_First_Click" Background="White" BorderThickness="2" BorderBrush="SkyBlue" FontSize="19" FontFamily="Microsoft Himalaya">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="4"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Label x:Name="BetweenPageNumberLabel" Content="..." HorizontalAlignment="Center" VerticalContentAlignment="Bottom" Margin="0,0,5,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
+                <Button x:Name="LastPageBtn" Margin="0,0,5,0" Width="25" Click="Btn_Last_Click" Background="White" BorderThickness="2" BorderBrush="SkyBlue" FontSize="19" FontFamily="Microsoft Himalaya">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="4"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button Content="Next" Margin="5,0,0,0" Width="60" Click="Btn_Next_Click" Background="White" BorderThickness="2" BorderBrush="SkyBlue" FontSize="19" FontFamily="Microsoft Himalaya">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="4"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Label Content="Page Size" Margin="0,-25,-90,0" FontSize="18" FontFamily="Microsoft Himalaya" HorizontalAlignment="Center" />
+                <ComboBox SelectedIndex="1" Margin="25,0,5,0" x:Name="comboBoxPageSize" Width="45" Height="23" FontSize="13" BorderThickness="0" BorderBrush="SkyBlue" HorizontalContentAlignment="Center" SelectedValuePath="Content">
+                    <ComboBoxItem Content="5"/>
+                    <ComboBoxItem Content="10"/>
+                    <ComboBoxItem Content="15"/>
+                    <ComboBoxItem Content="20"/>
+                    <ComboBoxItem Content="30"/>
+                    <ComboBoxItem Content="50"/>
+                </ComboBox>
+                <Button Content="Refresh" Margin="10,0,5,0" Width="50" Click="Btn_LoadPageSizeData" Background="Red" BorderThickness="0" Height="25" FontSize="19" FontFamily="Microsoft Himalaya">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="4"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </WrapPanel>
+        </Grid>
+        <Label x:Name="PageNumberLabel" HorizontalAlignment="Left" Margin="10,120,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Microsoft Himalaya"/>
+        <DataGrid Margin="0,150,0,0" x:Name="gridSnippet" AutoGenerateColumns="False" FontSize="20" FontFamily="Microsoft Himalaya">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Snippet Name" Width="3*" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Snippet Type" Width="*" Binding="{Binding Type}"/>
+                <DataGridTextColumn Header="Update Time" Width="*" Binding="{Binding UpdateTime}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

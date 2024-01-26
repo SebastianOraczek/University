@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BookstoreDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Authors">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Books">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="PublishedYear" Type="date" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="AuthorId" Type="int" />
+          <Property Name="StatusId" Type="int" />
+          <Property Name="CustomerId" Type="int" />
+        </EntityType>
+        <EntityType Name="Cities">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CityName" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="OrderQuantity" Type="int" Nullable="false" />
+          <Property Name="CityId" Type="int" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StatusName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Books__AuthorId__245D67DE">
+          <End Role="Authors" Type="Self.Authors" Multiplicity="0..1" />
+          <End Role="Books" Type="Self.Books" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Authors">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Books">
+              <PropertyRef Name="AuthorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Books__CustomerI__2645B050">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+          <End Role="Books" Type="Self.Books" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Books">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Books__StatusId__25518C17">
+          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="Books" Type="Self.Books" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Books">
+              <PropertyRef Name="StatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Customers__CityI__2180FB33">
+          <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
+          <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Customers">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BookstoreDBModelStoreContainer">
+          <EntitySet Name="Authors" EntityType="Self.Authors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Books" EntityType="Self.Books" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Books__AuthorId__245D67DE" Association="Self.FK__Books__AuthorId__245D67DE">
+            <End Role="Authors" EntitySet="Authors" />
+            <End Role="Books" EntitySet="Books" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Books__CustomerI__2645B050" Association="Self.FK__Books__CustomerI__2645B050">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Books" EntitySet="Books" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Books__StatusId__25518C17" Association="Self.FK__Books__StatusId__25518C17">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Books" EntitySet="Books" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Customers__CityI__2180FB33" Association="Self.FK__Customers__CityI__2180FB33">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Customers" EntitySet="Customers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BookstoreDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Authors">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Books" Relationship="Self.FK__Books__AuthorId__245D67DE" FromRole="Authors" ToRole="Books" />
+        </EntityType>
+        <EntityType Name="Books">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PublishedYear" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="AuthorId" Type="Int32" />
+          <Property Name="StatusId" Type="Int32" />
+          <Property Name="CustomerId" Type="Int32" />
+          <NavigationProperty Name="Authors" Relationship="Self.FK__Books__AuthorId__245D67DE" FromRole="Books" ToRole="Authors" />
+          <NavigationProperty Name="Customers" Relationship="Self.FK__Books__CustomerI__2645B050" FromRole="Books" ToRole="Customers" />
+          <NavigationProperty Name="Status" Relationship="Self.FK__Books__StatusId__25518C17" FromRole="Books" ToRole="Status" />
+        </EntityType>
+        <EntityType Name="Cities">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CityName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Customers" Relationship="Self.FK__Customers__CityI__2180FB33" FromRole="Cities" ToRole="Customers" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OrderQuantity" Type="Int32" Nullable="false" />
+          <Property Name="CityId" Type="Int32" />
+          <NavigationProperty Name="Books" Relationship="Self.FK__Books__CustomerI__2645B050" FromRole="Customers" ToRole="Books" />
+          <NavigationProperty Name="Cities" Relationship="Self.FK__Customers__CityI__2180FB33" FromRole="Customers" ToRole="Cities" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StatusName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Books" Relationship="Self.FK__Books__StatusId__25518C17" FromRole="Status" ToRole="Books" />
+        </EntityType>
+        <Association Name="FK__Books__AuthorId__245D67DE">
+          <End Role="Authors" Type="Self.Authors" Multiplicity="0..1" />
+          <End Role="Books" Type="Self.Books" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Authors">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Books">
+              <PropertyRef Name="AuthorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Books__CustomerI__2645B050">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+          <End Role="Books" Type="Self.Books" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Books">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Books__StatusId__25518C17">
+          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="Books" Type="Self.Books" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Books">
+              <PropertyRef Name="StatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Customers__CityI__2180FB33">
+          <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
+          <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Customers">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BookstoreDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Authors" EntityType="Self.Authors" />
+          <EntitySet Name="Books" EntityType="Self.Books" />
+          <EntitySet Name="Cities" EntityType="Self.Cities" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" />
+          <EntitySet Name="Status" EntityType="Self.Status" />
+          <AssociationSet Name="FK__Books__AuthorId__245D67DE" Association="Self.FK__Books__AuthorId__245D67DE">
+            <End Role="Authors" EntitySet="Authors" />
+            <End Role="Books" EntitySet="Books" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Books__CustomerI__2645B050" Association="Self.FK__Books__CustomerI__2645B050">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Books" EntitySet="Books" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Books__StatusId__25518C17" Association="Self.FK__Books__StatusId__25518C17">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Books" EntitySet="Books" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Customers__CityI__2180FB33" Association="Self.FK__Customers__CityI__2180FB33">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Customers" EntitySet="Customers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BookstoreDBModelStoreContainer" CdmEntityContainer="BookstoreDBEntities">
+          <EntitySetMapping Name="Authors">
+            <EntityTypeMapping TypeName="BookstoreDBModel.Authors">
+              <MappingFragment StoreEntitySet="Authors">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Books">
+            <EntityTypeMapping TypeName="BookstoreDBModel.Books">
+              <MappingFragment StoreEntitySet="Books">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="PublishedYear" ColumnName="PublishedYear" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="AuthorId" ColumnName="AuthorId" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="BookstoreDBModel.Cities">
+              <MappingFragment StoreEntitySet="Cities">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="BookstoreDBModel.Customers">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="OrderQuantity" ColumnName="OrderQuantity" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status">
+            <EntityTypeMapping TypeName="BookstoreDBModel.Status">
+              <MappingFragment StoreEntitySet="Status">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,33 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using MN_SO_APS_PROJECT.Areas.Identity.Data
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager;
+
+<section id="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
+          <div>
+               @if(User.IsInRole("admin"))
+              {
+                <h1>Welcome Admin @ViewBag.User.Login</h1>
+              }
+
+              @if(SignInManager.IsSignedIn(User) && !User.IsInRole("admin"))
+              {
+                        <h1>Welcome @ViewBag.User.Login</h1>
+              } 
+              
+              @if(!SignInManager.IsSignedIn(User)){
+                  <h1>Fill free to register to our application</h1>
+                  <h2>If you have an account, please log in.</h2>
+              }
+         </div>
+        </div>
+         <div class="col-lg-6 order-1 order-lg-2 welcome-img" data-aos="fade-left">
+            <img src="/img//welcome-img.png" class="img-fluid" alt="">
+        </div>
+      </div>
+    </div>
+</section>

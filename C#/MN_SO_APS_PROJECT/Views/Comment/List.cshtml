@@ -1,0 +1,9 @@
+﻿@model IEnumerable<MN_SO_APS_PROJECT.Models.CommentModel>
+
+<h1>Your Comments</h1>
+
+<ul class="list-group list-group-flush">
+	@foreach(var item in Model) {
+		<li class="list-group-item">@item.Content</li>
+	}
+</ul> 
